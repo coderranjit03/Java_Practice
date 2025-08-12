@@ -1,3 +1,4 @@
+package DSA.String;
 
 public class string{
     public static boolean  isPalindrome(String name) {
