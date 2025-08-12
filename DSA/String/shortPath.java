@@ -1,5 +1,6 @@
+package DSA.String;
 public class shortPath {
-    public static float shortPath(String path){
+    public static float shortestPath(String path){
         int x=0;
         int y=0;
         for(int i=0; i<path.length();i++){
@@ -23,6 +24,6 @@ public class shortPath {
     }
     public static void main(String[] args) {
         String path = "WNEENESENNN";
-        System.out.println(shortPath(path));
+        System.out.println(shortestPath(path));
     }
 }
