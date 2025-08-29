@@ -188,6 +188,53 @@ public class LinkedList {
         head = prev;
     }
 
+    //Detect Loop in LL- Floyds Cycle Finding alg
+    public static boolean isCycle() {
+        Node slow = head;
+        Node fast = head;
+        while(fast!=null && fast.next !=null){
+            slow = slow.next;
+            fast = fast.next.next;
+            if(slow==fast){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    //Remove Cycle in LL
+    public static void removeCycle(){
+        Node slow = head;
+        Node fast = head;
+        boolean cycle = false;
+
+        // Detect cycle using Floyd's algorithm
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+            if (slow == fast) {
+                cycle = true;
+                break;
+            }
+        }
+
+        if (!cycle) {
+            return;
+        }
+
+        // Find the start of the cycle
+        slow = head;
+        Node prev = null; // To keep track of the node before meeting point
+        while (slow != fast) {
+            prev = fast;
+            slow = slow.next;
+            fast = fast.next;
+        }
+
+        // Remove the cycle
+        prev.next = null;
+    }
+
     // print LinkedList
     public void printLL() {
         if (head == null) {
