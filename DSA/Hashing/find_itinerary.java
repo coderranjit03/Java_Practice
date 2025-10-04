@@ -1,11 +1,9 @@
 package DSA.Hashing;
-
 import java.util.*;
+
 public class find_itinerary {
 
     public static String getStart(HashMap<String,String> tickets){
-
-        //we will make a reverse hashMap
         HashMap<String,String> revMap = new HashMap<>();
 
         for(String i : tickets.keySet()){
@@ -17,9 +15,10 @@ public class find_itinerary {
                 return i; //starting point
             }
         }
-
         return null;
+        
     }
+
     public static void main(String args[]){
         HashMap<String,String> tickets = new HashMap<>();
 
@@ -30,14 +29,10 @@ public class find_itinerary {
 
         String start = getStart(tickets);
 
-        System.out.print(start); //printing intial starting point
-
-        for(String key : tickets.keySet()){
-            System.out.print("-->"+tickets.get(start)); // printing the value 
+        System.out.print(start);
+        while (tickets.containsKey(start)) {
+            System.out.print(" --> " + tickets.get(start));
             start = tickets.get(start);
         }
-
-
-
     }
 }
